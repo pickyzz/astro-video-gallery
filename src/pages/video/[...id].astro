@@ -1,0 +1,66 @@
+---
+import MiniGrid from '../../components/MiniGrid.astro'
+import Layout from '../../layouts/Layout.astro'
+import { videos } from '../../videos'
+
+export async function getStaticPaths() {
+  return videos.map((photo) => ({ params: { id: photo.id } }))
+}
+
+const { id } = Astro.params
+
+const video = videos.find((video) => video.id == id)
+const videoIndex = videos.findIndex((photo) => photo.id == id)
+const videoNumber = video?.id.toString().padStart(2, '0')
+
+const prevVideo = videos[videoIndex - 1]
+const nextVideo = videos[videoIndex + 1]
+---
+
+<Layout title="Pickyzz voice demo">
+  <div class="content">
+    <div class="content__item" id="item-1">
+      <nav class="slide-nav">
+        <div
+          class="slide-nav__img slide-nav__img--prev"
+          style={prevVideo ? `background-image:url(${prevVideo.thumbnail});` : ''}
+        >
+        </div>
+        <video controls autoplay loop oncontextmenu="return false;"
+          class="slide-nav__main-vid"
+          src={video?.url}
+          transition:name={`video-${video?.id}`}
+        />
+        <div
+          class="slide-nav__img slide-nav__img--next"
+          style={nextVideo ? `background-image:url(${nextVideo.thumbnail});` : ''}
+        >
+        </div>
+      </nav>
+
+      <div transition:name={`video-details-${video?.id}`}>
+        <span class="content__item-number oh"
+          ><span class="oh__inner">{videoNumber}</span></span
+        >
+        <h2 class="content__item-heading oh">
+          <span class="oh__inner">{video?.title}</span>
+        </h2>
+        <p class="content__item-text">
+          {video?.description}
+        </p>
+        <!-- <a
+          class="content__item-link oh"
+          href="https://developer.chrome.com/docs/web-platform/view-transitions/"
+          target="_blank"
+          rel="noopener"><span class="oh__inner">View more</span></a
+        > -->
+      </div>
+    </div>
+    <a href="/" class="back">
+      <svg viewBox="0 0 50 9" width="100%"
+        ><path d="M0 4.5l5-3M0 4.5l5 3M50 4.5h-77"></path></svg
+      >
+    </a>
+    <MiniGrid currentVideoId={video?.id} />
+  </div>
+</Layout>

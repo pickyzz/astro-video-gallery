@@ -1,0 +1,38 @@
+---
+import type { Video } from '../videos'
+
+interface Props {
+  noId?: boolean
+  video: Video
+  videoIndex?: number
+  isCurrent?: boolean
+}
+
+const { noId, video, videoIndex, isCurrent } = Astro.props
+---
+
+<div class:list={[`grid__cell`, { 'grid__cell--current': isCurrent }]}>
+  <div class="grid__cell-vid">
+    <a href={`/video/${video.id}`}>
+      
+      <!-- video grid -->
+      <video muted loop oncontextmenu="return false;"
+        poster={video.thumbnail}
+        onmouseover="this.play()" onmouseout="this.pause();this.load();"
+        class="grid__cell-vid-inner"
+        id={noId ? undefined : `video-${video.id}`}
+        src={video.url}
+      />
+
+      <!-- if want to show still image uncomment below and comment above -->
+      <!-- <img
+        class="grid__cell-vid-inner"
+        id={noId ? undefined : `video-${video.id}`}
+        src={video.thumbnail}
+        alt={video.title}
+        loading={videoIndex && videoIndex > 8 ? 'lazy' : 'eager'}
+        fetchpriority={videoIndex && videoIndex <= 4 ? 'high' : 'auto'}
+      /> -->
+    </a>
+  </div>
+</div>

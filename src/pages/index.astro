@@ -1,0 +1,37 @@
+---
+import GridCell from '../components/GridCell.astro'
+import Layout from '../layouts/Layout.astro'
+
+import { videos } from '../videos'
+---
+
+<Layout title="Pickyzz voice demo">
+  <main>
+    <div class="grid grid--large">
+      <div class="grid__cell grid__cell--padded">
+        <div class="frame">
+          <h1 class="frame__title oh">
+            <span class="oh__inner"
+              >Pickyzz demo Gallery</span
+            >
+          </h1>
+          <nav class="frame__links">
+            <div>
+              2023 by <a
+                href="https://pickyzz.dev"
+                class="oh"
+                target="_blank"
+                rel="noopener"><span class="oh__inner">Parinya T.</span></a
+              >
+            </div>
+          </nav>
+        </div>
+      </div>
+      {
+        videos.map((video, index) => (
+          <GridCell video={video} videoIndex={index} />
+        ))
+      }
+    </div>
+  </main>
+</Layout>

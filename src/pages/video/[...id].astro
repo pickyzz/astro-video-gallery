@@ -28,7 +28,7 @@ const nextVideo = videos[videoIndex + 1]
         </div>
         <video controls autoplay loop oncontextmenu="return false;"
           class="slide-nav__main-vid"
-          src={video?.url}
+          src=`https://github.com/pickyzz/astro-video-gallery/raw/main${video?.url}`
           transition:name={`video-${video?.id}`}
         />
         <div

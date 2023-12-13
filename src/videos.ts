@@ -17,7 +17,7 @@ export const videos: Video[] = [
     title: 'เสียงเด็กหนุ่มชาย (อนิเมะ)',
     description:
       "ตัวละคร โทมิโอกะ กิยู (ดาบพิฆาตรอสูร)",
-    url: '/vid/demo_giyuu.mp4',
+    url: '/src/assets/vid/demo_giyuu.mp4',
     thumbnail: '/img/giyuu.png',
   },
   {
@@ -25,7 +25,7 @@ export const videos: Video[] = [
     title: 'เสียงผู้ใหญ่ชาย (อนิเมะ)',
     description:
       'ตัวละคร ชิบะ ไทจุ (โตเกียวรีเวนเจอร์)',
-    url: '/vid/demo_taijuu.mp4',
+    url: '/src/assets/vid/demo_giyuu.mp4',
     thumbnail: '/img/taijuu.png',
   },
 ]

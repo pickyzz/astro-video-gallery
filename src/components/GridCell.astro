@@ -21,7 +21,7 @@ const { noId, video, videoIndex, isCurrent } = Astro.props
         onmouseover="this.play()" onmouseout="this.pause();this.load();"
         class="grid__cell-vid-inner"
         id={noId ? undefined : `video-${video.id}`}
-        src={video.url}
+        src=`https://github.com/pickyzz/astro-video-gallery/raw/main${video.url}`
       />
 
       <!-- if want to show still image uncomment below and comment above -->

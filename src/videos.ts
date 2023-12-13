@@ -25,7 +25,7 @@ export const videos: Video[] = [
     title: 'เสียงผู้ใหญ่ชาย (อนิเมะ)',
     description:
       'ตัวละคร ชิบะ ไทจุ (โตเกียวรีเวนเจอร์)',
-    url: '/src/assets/vid/demo_giyuu.mp4',
+    url: '/src/assets/vid/demo_taijuu.mp4',
     thumbnail: '/img/taijuu.png',
   },
 ]
